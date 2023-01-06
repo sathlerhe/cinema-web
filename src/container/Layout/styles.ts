@@ -1,8 +1,12 @@
 import { styled } from "../../../stitches.config";
 
 export const Container = styled("div", {
-  header: { maxWidth: "100vw" },
-  footer: { maxWidth: "100vw" },
+  gridTemplateAreas: `
+  "header"
+  "body"
+  "footer"`,
+  header: { gridArea: "header", maxWidth: "100vw" },
+  footer: { gridArea: "footer", maxWidth: "100vw" },
   "@sm": {
     overflowX: "hidden",
   },

@@ -19,9 +19,9 @@ const Home: React.FC = () => {
     imDbRatingCount: string;
   }
 
-  const [mostPopularTvShows, setMostPopularTvShows] = useState();
-  const [mostPopularMovies, setMostPopularMovies] = useState();
-  const [inTheaters, setInTheaters] = useState();
+  const [mostPopularTvShows, setMostPopularTvShows] = useState<any[]>();
+  const [mostPopularMovies, setMostPopularMovies] = useState<any[]>();
+  const [inTheaters, setInTheaters] = useState<any[]>();
 
   const showsMocked: Array<IMostPopularShows> = [
     {
@@ -143,26 +143,26 @@ const Home: React.FC = () => {
     },
   ];
 
-  // useEffect(() => {
-  //   const handleCallApi = async () => {
-  //     let tvShowsRes = await api.get(
-  //       `/mostpopulartvs/${import.meta.env.VITE_API_KEY}`
-  //     );
-  //     setMostPopularTvShows(tvShowsRes.data.items);
+  useEffect(() => {
+    const handleCallApi = async () => {
+      let tvShowsRes = await api.get(
+        `/mostpopulartvs/${import.meta.env.VITE_API_KEY}`
+      );
+      setMostPopularTvShows(tvShowsRes.data.items);
 
-  //     let moviesRes = await api.get(
-  //       `/MostPopularMovies/${import.meta.env.VITE_API_KEY}`
-  //     );
-  //     setMostPopularMovies(moviesRes.data.items);
+      let moviesRes = await api.get(
+        `/MostPopularMovies/${import.meta.env.VITE_API_KEY}`
+      );
+      setMostPopularMovies(moviesRes.data.items);
 
-  //     let inTheatersRes = await api.get(
-  //       `/InTheaters/${import.meta.env.VITE_API_KEY}`
-  //     );
-  //     setInTheaters(inTheatersRes.data.items);
-  //   };
+      let inTheatersRes = await api.get(
+        `/InTheaters/${import.meta.env.VITE_API_KEY}`
+      );
+      setInTheaters(inTheatersRes.data.items);
+    };
 
-  //   handleCallApi();
-  // }, []);
+    handleCallApi();
+  }, []);
 
   return (
     <Container>
@@ -171,13 +171,31 @@ const Home: React.FC = () => {
           <Col>
             <Div>
               <h4>Most Popular TV Shows</h4>
-              <MovieCarousel moviesToDisplay={showsMocked} />
+              <MovieCarousel
+                moviesToDisplay={
+                  mostPopularTvShows?.length && mostPopularTvShows?.length > 0
+                    ? mostPopularTvShows
+                    : showsMocked
+                }
+              />
 
               <h4>Most Popular Movies</h4>
-              <MovieCarousel moviesToDisplay={showsMocked} />
+              <MovieCarousel
+                moviesToDisplay={
+                  mostPopularMovies?.length && mostPopularMovies?.length > 0
+                    ? mostPopularTvShows
+                    : showsMocked
+                }
+              />
 
               <h4>In Theaters</h4>
-              <MovieCarousel moviesToDisplay={showsMocked} />
+              <MovieCarousel
+                moviesToDisplay={
+                  inTheaters?.length && inTheaters?.length > 0
+                    ? mostPopularTvShows
+                    : showsMocked
+                }
+              />
             </Div>
           </Col>
         </Row>

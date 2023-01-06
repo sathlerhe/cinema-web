@@ -50,7 +50,7 @@ const MovieCarousel: React.FC<IMovieCarousel> = ({ moviesToDisplay }) => {
     >
       {moviesToDisplay?.map((movie: any) => (
         <SwiperSlide key={movie?.id}>
-          <Link to={`/${movie?.id}`}>
+          <Link to={`/movie?id=${movie?.id}`}>
             <Card>
               <Img style={{ backgroundImage: `url(${movie?.image}` }} />
               <Flex>

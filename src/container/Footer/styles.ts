@@ -2,6 +2,7 @@ import { styled } from "../../../stitches.config";
 
 export const Container = styled("footer", {
   color: "$text_white",
+  marginTop: '$xxs',
   borderTop: "1px solid $primary",
   padding: "$xxxs 0 ",
 
