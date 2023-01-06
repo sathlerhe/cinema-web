@@ -6,12 +6,8 @@ import { Container, Flex, Links, LinkEl } from "./styles";
 const Header: React.FC = () => {
   const links = [
     {
-      name: "Movies",
-      link: "/movies",
-    },
-    {
-      name: "TvShows",
-      link: "/shows",
+      name: "Home",
+      link: "/",
     },
     {
       name: "Rank",

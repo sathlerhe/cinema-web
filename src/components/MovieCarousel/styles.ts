@@ -6,6 +6,10 @@ export const Card = styled("div", {
   height: "320px",
   borderRadius: "$xs",
   gap: "0",
+
+  ".swiper": {
+    maxWidth: "100%",
+  },
 });
 
 export const Flex = styled("div", {

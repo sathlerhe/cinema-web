@@ -28,18 +28,17 @@ const MovieCarousel: React.FC<IMovieCarousel> = ({ moviesToDisplay }) => {
       } else if (window.innerWidth <= 1440 && window.innerWidth > 960) {
         setSlidesPerView(4.5);
       } else if (window.innerWidth <= 960 && window.innerWidth > 540) {
-        setSlidesPerView(3.5);
+        setSlidesPerView(3.2);
       } else if (window.innerWidth <= 540 && window.innerWidth > 360) {
         setSlidesPerView(1.8);
       } else if (window.innerWidth <= 360) {
-        console.log("aa");
-        setSlidesPerView(1.3);
+        setSlidesPerView(1.5);
       }
-
-      console.log(slidesPerView);
     },
     [window.innerWidth]
   );
+
+  console.log(window.innerWidth)
 
   return (
     <Swiper

@@ -5,7 +5,7 @@ export const Container = styled("header", {
   background: "$bg_primary",
   color: "$text_white",
   borderBottom: "1px solid $primary",
-  padding: "$xxxs",
+  padding: "$xxs 0",
 });
 
 export const Flex = styled("div", {
